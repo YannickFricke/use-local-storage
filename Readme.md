@@ -1,5 +1,8 @@
 # React local storage hook <!-- omit in toc -->
 
+![CI workflow status](https://img.shields.io/github/workflow/status/YannickFricke/use-local-storage/CI) ![GitHub watchers](https://img.shields.io/github/watchers/YannickFricke/use-local-storage?style=social)
+
+
 - [About the project](#about-the-project)
 - [Installation](#installation)
   - [NPM](#npm)
