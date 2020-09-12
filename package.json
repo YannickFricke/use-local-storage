@@ -9,9 +9,12 @@
         "test": "jest",
         "test:watch": "jest --watch"
     },
-    "dependencies": {},
+    "dependencies": {
+        "react": "^16.13.1"
+    },
     "devDependencies": {
         "@types/jest": "^26.0.13",
+        "@types/react": "^16.9.49",
         "commitizen": "^4.2.1",
         "cz-conventional-changelog": "^3.3.0",
         "jest": "^26.4.2",
