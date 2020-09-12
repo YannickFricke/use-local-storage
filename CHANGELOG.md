@@ -7,6 +7,7 @@
 
 # 1.0.0 (2020-09-12)
 
+
 ### Features
 
 * **helper:** added the basic helpers ([9ba05cb](https://github.com/YannickFricke/use-local-storage/commit/9ba05cb18b5aefa967c2f5565f81eb2b3a284ed5))
