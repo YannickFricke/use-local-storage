@@ -2,11 +2,12 @@
 
 ![CI workflow status](https://img.shields.io/github/workflow/status/YannickFricke/use-local-storage/CI) ![GitHub watchers](https://img.shields.io/github/watchers/YannickFricke/use-local-storage?style=social)
 
-
 - [About the project](#about-the-project)
 - [Installation](#installation)
   - [NPM](#npm)
   - [Yarn](#yarn)
+- [TypeScript support](#typescript-support)
+- [Usage examples](#usage-examples)
 - [License](#license)
 
 ## About the project
@@ -36,7 +37,7 @@ and get auto complete for the API.
 
 ```ts
 // Import the hook
-import { useLocalStorage } from "@yannickfricke/use-local-storage";
+import { useLocalStorage } from '@yannickfricke/use-local-storage';
 
 // The key defines the name of the entry
 // which will be used to save the data
