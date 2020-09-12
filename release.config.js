@@ -1,6 +1,6 @@
 module.exports = {
     branches: ['master'],
-    repositoryUrl: 'https://github.com/YannickFricke/use-local-storage',
+    repositoryUrl: 'git@github.com:YannickFricke/use-local-storage.git',
     plugins: [
         '@semantic-release/commit-analyzer',
         '@semantic-release/release-notes-generator',
@@ -8,7 +8,7 @@ module.exports = {
             changelogFile: 'CHANGELOG.md',
         }],
         ['@semantic-release/npm', {
-            'pkgRoot': 'dist',
+            'pkgRoot': '.',
         }],
         ['@semantic-release/git', {
             assets: ['package.json', 'CHANGELOG.md'],
