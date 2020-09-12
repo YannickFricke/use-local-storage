@@ -14,9 +14,13 @@ jobs:
         name: Release
         needs: tests
         if: github.ref == 'refs/heads/master'
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-latest
         steps:
-            -   uses: brpaz/action-semantic-release@v1
-                with:
-                    dry_run: false
-                    branch: master
+            -   uses: actions/checkout@v2
+            -   name: Install modules
+                run: yarn install
+            -   name: Release new version
+                run: yarn run release
+                env:
+                    NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+                    GH_TOKEN: ${{secrets.GH_TOKEN}}
