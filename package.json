@@ -2,6 +2,7 @@
     "name": "@yannickfricke/use-local-storage",
     "version": "0.0.0",
     "license": "MIT",
+    "main": "./dist/index.js",
     "scripts": {
         "commit": "git-cz",
         "prerelease": "npm run build",
