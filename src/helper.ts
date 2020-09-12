@@ -10,8 +10,6 @@
  */
 export function getOrDefault<T>(key: string, defaultValue: T): T {
     if (!hasLocalStorageValue(key)) {
-        window.localStorage.setItem(key, serializeValue(defaultValue));
-
         return defaultValue;
     }
 
