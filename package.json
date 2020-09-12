@@ -4,6 +4,9 @@
     "license": "MIT",
     "main": "./dist/index.js",
     "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "commit": "git-cz",
         "prerelease": "npm run build",
