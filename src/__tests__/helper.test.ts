@@ -2,6 +2,7 @@ import {
     deserializeValue,
     getOrDefault,
     hasLocalStorageValue,
+    saveLocalStorageValue,
     serializeValue,
 } from '../helper';
 
@@ -49,6 +50,22 @@ describe('Helper', () => {
             window.localStorage.setItem(testKey, '');
 
             expect(hasLocalStorageValue(testKey)).toBeTruthy();
+        });
+    });
+
+    describe('saveLocalStorageValue', () => {
+        beforeEach(() => {
+            window.localStorage.removeItem(testKey);
+        });
+
+        it('should be able to set new items', () => {
+            expect(window.localStorage.getItem(testKey)).toBeNull();
+
+            saveLocalStorageValue(testKey, [defaultValue]);
+
+            expect(window.localStorage.getItem(testKey)).toBe(
+                JSON.stringify([defaultValue]),
+            );
         });
     });
 

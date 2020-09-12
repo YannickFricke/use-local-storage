@@ -26,6 +26,17 @@ export const hasLocalStorageValue = (key: string) =>
     window.localStorage.getItem(key) !== null;
 
 /**
+ * Sets the new value to the local storage item by the given key
+ *
+ * @template T {T} The type of the value which should be saved
+ * @param {string} key The key of the local storage item
+ * @param {T} value The new value
+ */
+export const saveLocalStorageValue = <T>(key: string, value: T) => {
+    window.localStorage.setItem(key, serializeValue(value));
+};
+
+/**
  * Serializes the given value with JSON.stringify
  *
  * @param value The value which should be serialized
@@ -36,6 +47,7 @@ export const serializeValue = (value: unknown): string => JSON.stringify(value);
 /**
  * Deserializes the given value to the given generic type
  *
+ * @template T {T} The type of the stored value
  * @param value The value which should be deserialized
  * @returns {T} The deserialized value
  */
