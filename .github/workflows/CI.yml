@@ -9,9 +9,12 @@ jobs:
             -   name: Install modules
                 run: yarn install
             -   name: Run tests
-                run: yarn test
-            -   name: Run codecov
-                run: yarn run codecov
+                run: yarn test --collect-coverage
+            -   uses: codecov/codecov-action@v1
+                with:
+                    token: ${{ secrets.CODECOV_TOKEN }}
+                    fail_ci_if_error: true
+
     release:
         name: Release
         needs: tests
