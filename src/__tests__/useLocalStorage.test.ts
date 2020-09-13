@@ -65,4 +65,15 @@ describe('useLocalStorage hook', () => {
         expect(result.current.value).toHaveLength(1);
         expect(result.current.value[0]).toStrictEqual(testEntry);
     });
+
+    it('should be able to receive the current value from the local storage', () => {
+        let testValue = [testEntry];
+        saveLocalStorageValue(testKey, testValue);
+
+        const { result } = renderHook(() =>
+            useLocalStorage(testKey, testValue),
+        );
+
+        expect(result.current.value).toStrictEqual(testValue);
+    });
 });
