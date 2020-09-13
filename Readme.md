@@ -39,7 +39,7 @@ and get auto complete for the API.
 
 ```ts
 // Import the hook
-import { useLocalStorage } from '@yannickfricke/use-local-storage';
+import { useLocalStorage } from '@yannickfricke/use-local-storage/dist';
 
 // The key defines the name of the entry
 // which will be used to save the data
