@@ -10,6 +10,8 @@ jobs:
                 run: yarn install
             -   name: Run tests
                 run: yarn test
+            -   name: Run codecov
+                run: yarn run codecov
     release:
         name: Release
         needs: tests
