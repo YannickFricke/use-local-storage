@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/YannickFricke/use-local-storage/compare/v1.1.0...v1.2.0) (2020-09-23)
+
+
+### Features
+
+* **hooks:** added the useSyncedLocalStorage hook ([5cc8508](https://github.com/YannickFricke/use-local-storage/commit/5cc85087baa274b67f2e6a3c67877f6b056b31c9))
+
 # [1.1.0](https://github.com/YannickFricke/use-local-storage/compare/v1.0.0...v1.1.0) (2020-09-12)
 
 
