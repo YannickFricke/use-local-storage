@@ -28,7 +28,7 @@
         "codecov": "^3.8.0",
         "commitizen": "^4.2.1",
         "cz-conventional-changelog": "^3.3.0",
-        "jest": "^26.5.2",
+        "jest": "^26.5.3",
         "prettier": "^2.1.2",
         "react-test-renderer": "^16.13.1",
         "semantic-release": "^17.1.2",
