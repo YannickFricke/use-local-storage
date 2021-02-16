@@ -4,13 +4,13 @@
 [![codecov](https://codecov.io/gh/YannickFricke/use-local-storage/branch/develop/graph/badge.svg)](https://codecov.io/gh/YannickFricke/use-local-storage)
 ![GitHub watchers](https://img.shields.io/github/watchers/YannickFricke/use-local-storage?style=social)
 
-- [About the project](#about-the-project)
-- [Installation](#installation)
-  - [NPM](#npm)
-  - [Yarn](#yarn)
-- [TypeScript support](#typescript-support)
-- [Usage examples](#usage-examples)
-- [License](#license)
+-   [About the project](#about-the-project)
+-   [Installation](#installation)
+    -   [NPM](#npm)
+    -   [Yarn](#yarn)
+-   [TypeScript support](#typescript-support)
+-   [Usage examples](#usage-examples)
+-   [License](#license)
 
 ## About the project
 
@@ -39,7 +39,10 @@ and get auto complete for the API.
 
 ```ts
 // Import the hook
-import { useLocalStorage } from '@yannickfricke/use-local-storage/dist';
+import {
+    useLocalStorage,
+    useSyncedLocalStorage,
+} from '@yannickfricke/use-local-storage/dist';
 
 // The key defines the name of the entry
 // which will be used to save the data
@@ -58,6 +61,10 @@ export const getUsers = () => useLocalStorage(usersKey, []);
 // this value. You can also define here a default state
 // which will be saved when the value of the key is null
 export const getSettings = () => useLocalStorage(settingsKey, {});
+// HINT: The synced local storage will update its own value when
+// another local storage instance updated the value.
+// So the state will be syncronized across windows / tabs
+export const getSettings = () => useSyncedLocalStorage(settingsKey, {});
 ```
 
 HINT:
