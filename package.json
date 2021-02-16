@@ -16,9 +16,7 @@
         "test": "jest",
         "test:watch": "jest --watch"
     },
-    "dependencies": {
-        "react": "^17.0.1"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@semantic-release/changelog": "^5.0.1",
         "@semantic-release/git": "^9.0.0",
@@ -43,5 +41,8 @@
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
         }
+    },
+    "peerDependencies": {
+        "react": "^17.0.1"
     }
 }
