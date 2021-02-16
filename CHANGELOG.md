@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/YannickFricke/use-local-storage/compare/v1.2.0...v1.3.0) (2021-02-16)
+
+
+### Bug Fixes
+
+* **dep:** fixed hopefully the dependency resolution for react ([e11ba14](https://github.com/YannickFricke/use-local-storage/commit/e11ba149b5ba973cf297a9f616383be0cfb450fd))
+* **index:** fixed export ([5e2dd28](https://github.com/YannickFricke/use-local-storage/commit/5e2dd28d5402ae685504d2562e1519bd0dcb7e51))
+
+
+### Features
+
+* **hooks:** added the useSyncedLocalStorage hook ([d5f1c2b](https://github.com/YannickFricke/use-local-storage/commit/d5f1c2b06a7d6bd7bab2ee5109c6fa29974b84b0))
+* **publish:** set the publish config to public in the package.json file ([a312682](https://github.com/YannickFricke/use-local-storage/commit/a312682b914446bb494608beb676a74ca14c6bde))
+
 # [1.2.0](https://github.com/YannickFricke/use-local-storage/compare/v1.1.0...v1.2.0) (2020-09-23)
 
 ### Features
