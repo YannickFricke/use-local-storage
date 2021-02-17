@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/YannickFricke/use-local-storage/compare/v2.0.0...v2.0.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **usesyncedlocalstorage:** fixed the type for the useRepository usage ([9aa61d8](https://github.com/YannickFricke/use-local-storage/commit/9aa61d8dbdb6d2e5f91a8ec04ccb2760e26977e1))
+
 # [2.0.0](https://github.com/YannickFricke/use-local-storage/compare/v1.3.0...v2.0.0) (2021-02-17)
 
 
