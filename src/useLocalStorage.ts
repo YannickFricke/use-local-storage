@@ -11,6 +11,8 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
     const [localValue, setLocalValue] = useState<T>(
         getOrDefault(key, initialValue),
     );
+    const [currentKey, setCurrentKey] = useState('');
+    const [initialized, setInitialized] = useState(false);
 
     const setValue = (newValue: T) => {
         saveLocalStorageValue(key, newValue);
@@ -21,15 +23,21 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
         setLocalValue(getOrDefault(key, initialValue));
 
     useEffect(() => {
+        if (currentKey === key && initialized) {
+            return;
+        }
         if (!hasLocalStorageValue(key)) {
             saveLocalStorageValue(key, initialValue);
             setLocalValue(initialValue);
             return;
+        } else {
+            const storedValue = getOrDefault(key, initialValue);
+
+            setLocalValue(storedValue);
         }
 
-        const storedValue = getOrDefault(key, initialValue);
-
-        setLocalValue(storedValue);
+        setInitialized(true);
+        setCurrentKey(key);
     }, [key, initialValue]);
 
     return {
