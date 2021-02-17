@@ -6,8 +6,8 @@ import { useLocalStorage } from './useLocalStorage';
 export const useSyncedLocalStorage = <T>(
     key: string,
     initialValue: T,
-): [T | null, (newValue: T) => void] => {
-    const [value, setValue] = useLocalStorage<T | null>(key, initialValue);
+): [T, (newValue: T) => void] => {
+    const [value, setValue] = useLocalStorage<T>(key, initialValue);
 
     useEffect(() => {
         const listener = ({ key: newKey, newValue }: StorageEvent) => {
