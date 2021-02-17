@@ -1,4 +1,5 @@
 import { act, renderHook } from '@testing-library/react-hooks';
+
 import { deserializeValue, saveLocalStorageValue } from '../helper';
 import { useLocalStorage } from '../useLocalStorage';
 
@@ -22,25 +23,26 @@ describe('useLocalStorage hook', () => {
     });
 
     it('should return a value, set value function and a refresh function', () => {
-        const { result } = renderHook(() =>
-            useLocalStorage(testKey, testValue),
-        );
+        const {
+            result: { current },
+        } = renderHook(() => useLocalStorage(testKey, testValue));
 
-        expect(result.current.value).toBe(testValue);
-        expect(typeof result.current.setValue).toBe('function');
-        expect(typeof result.current.refresh).toBe('function');
+        expect(current[0]).toBe(testValue);
+        expect(typeof current[1]).toBe('function');
+        expect(typeof current[2]).toBe('function');
     });
 
     it('should be able to set a new value', () => {
-        const { result } = renderHook(() =>
+        const { result, waitForNextUpdate } = renderHook(() =>
             useLocalStorage(testKey, testValue),
         );
 
         act(() => {
-            result.current.setValue(testValue.concat(testEntry));
+            result.current[1](testValue.concat(testEntry));
         });
 
-        const value = result.current.value;
+        const value = result.current[0];
+
         expect(value).toHaveLength(1);
         expect(value).toContain(testEntry);
 
@@ -54,26 +56,26 @@ describe('useLocalStorage hook', () => {
             useLocalStorage(testKey, testValue),
         );
 
-        expect(result.current.value).toHaveLength(0);
+        expect(result.current[0]).toHaveLength(0);
 
         saveLocalStorageValue(testKey, [testEntry]);
 
         act(() => {
-            result.current.refresh();
+            result.current[2]();
         });
 
-        expect(result.current.value).toHaveLength(1);
-        expect(result.current.value[0]).toStrictEqual(testEntry);
+        expect(result.current[0]).toHaveLength(1);
+        expect(result.current[0][0]).toStrictEqual(testEntry);
     });
 
     it('should be able to receive the current value from the local storage', () => {
-        let testValue = [testEntry];
+        const testValue = [testEntry];
         saveLocalStorageValue(testKey, testValue);
 
-        const { result } = renderHook(() =>
-            useLocalStorage(testKey, testValue),
-        );
+        const {
+            result: { current },
+        } = renderHook(() => useLocalStorage(testKey, testValue));
 
-        expect(result.current.value).toStrictEqual(testValue);
+        expect(current[0]).toStrictEqual(testValue);
     });
 });
