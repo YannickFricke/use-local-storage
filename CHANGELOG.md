@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/YannickFricke/use-local-storage/compare/v1.3.0...v2.0.0) (2021-02-17)
+
+
+### Bug Fixes
+
+* **uselocalstorage:** fixed the rerendering issue ([b9b46a5](https://github.com/YannickFricke/use-local-storage/commit/b9b46a5767d52625abe7e2e7370ea76fe778cd83))
+
+
+### Code Refactoring
+
+* **uselocalstorage:** refactored the return value ([d51c02e](https://github.com/YannickFricke/use-local-storage/commit/d51c02e84f8d52a48fc5347bb59c0c951d1cd77e))
+
+
+### BREAKING CHANGES
+
+* **uselocalstorage:** Changed the return value of the "useLocalStorage" hook
+
 # [1.3.0](https://github.com/YannickFricke/use-local-storage/compare/v1.2.0...v1.3.0) (2021-02-16)
 
 
