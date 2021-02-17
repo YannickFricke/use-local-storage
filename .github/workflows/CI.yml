@@ -7,7 +7,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install yarn
-              run: npm install -g yarn
+              run: sudo npm install -g yarn
             - name: Install react for @testing-library/react-hooks
               run: yarn add react
             - name: Run tests
