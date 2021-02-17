@@ -19,7 +19,7 @@ export function getOrDefault<T>(key: string, defaultValue: T): T {
 /**
  * Checks if the value at the given key is not null
  *
- * @param key The key of the entry
+ * @param {string} key The key of the entry
  * @returns {boolean} Returns true when the value is not null
  */
 export const hasLocalStorageValue = (key: string) =>

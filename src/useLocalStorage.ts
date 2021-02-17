@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { getOrDefault, hasLocalStorageValue, saveLocalStorageValue } from './helper';
 
 /**
@@ -7,10 +8,15 @@ import { getOrDefault, hasLocalStorageValue, saveLocalStorageValue } from './hel
  * @param {string} key The key of the local storage item
  * @param {T} initialValue The type of the stored value
  */
-export const useLocalStorage = <T>(key: string, initialValue: T) => {
+export const useLocalStorage = <T>(
+    key: string,
+    initialValue: T,
+): [T, (newValue: T) => void, () => void] => {
     const [localValue, setLocalValue] = useState<T>(
         getOrDefault(key, initialValue),
     );
+    const [currentKey, setCurrentKey] = useState('');
+    const [initialized, setInitialized] = useState(false);
 
     const setValue = (newValue: T) => {
         saveLocalStorageValue(key, newValue);
@@ -21,20 +27,23 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
         setLocalValue(getOrDefault(key, initialValue));
 
     useEffect(() => {
+        if (currentKey === key && initialized) {
+            return;
+        }
+
         if (!hasLocalStorageValue(key)) {
             saveLocalStorageValue(key, initialValue);
             setLocalValue(initialValue);
             return;
+        } else {
+            const storedValue = getOrDefault(key, initialValue);
+
+            setLocalValue(storedValue);
         }
 
-        const storedValue = getOrDefault(key, initialValue);
-
-        setLocalValue(storedValue);
+        setInitialized(true);
+        setCurrentKey(key);
     }, [key, initialValue]);
 
-    return {
-        value: localValue,
-        setValue,
-        refresh: refreshLocalValue,
-    };
+    return [localValue, setValue, refreshLocalValue];
 };

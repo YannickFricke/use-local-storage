@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
-import { deserializeValue, serializeValue } from './helper';
+
+import { deserializeValue } from './helper';
 import { useLocalStorage } from './useLocalStorage';
 
 export const useSyncedLocalStorage = <T>(
     key: string,
     initialValue: T,
 ): [T | null, (newValue: T) => void] => {
-    const { value, setValue } = useLocalStorage<T | null>(key, initialValue);
+    const [value, setValue] = useLocalStorage<T | null>(key, initialValue);
 
     useEffect(() => {
         const listener = ({ key: newKey, newValue }: StorageEvent) => {
