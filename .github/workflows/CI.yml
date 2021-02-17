@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - name: Install modules
+            - name: Install react for @testing-library/react-hooks
               run: yarn add react
             - name: Run tests
               run: yarn test --collect-coverage
