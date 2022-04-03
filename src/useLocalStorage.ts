@@ -29,6 +29,13 @@ export const useLocalStorage = <T>(
         setLocalValue(getOrDefault(key, initialValue));
 
     useEffect(() => {
+        if (
+            typeof window === 'undefined' ||
+            typeof window.localStorage === 'undefined'
+        ) {
+            return;
+        }
+
         if (currentKey === key && initialized) {
             return;
         }
