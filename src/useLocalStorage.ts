@@ -16,9 +16,7 @@ export const useLocalStorage = <T>(
     key: string,
     initialValue: T,
 ): [T, (newValue: T) => void, () => void] => {
-    const [localValue, setLocalValue] = useState<T>(
-        getOrDefault(key, initialValue),
-    );
+    const [localValue, setLocalValue] = useState<T>(initialValue);
     const [currentKey, setCurrentKey] = useState('');
     const [initialized, setInitialized] = useState(false);
 
