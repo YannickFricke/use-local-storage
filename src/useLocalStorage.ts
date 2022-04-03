@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { getOrDefault, hasLocalStorageValue, saveLocalStorageValue } from './helper';
+import {
+    getOrDefault,
+    hasLocalStorageValue,
+    saveLocalStorageValue,
+} from './helper';
 
 /**
  * A react hook which uses the local storage of a browser to store and update values
@@ -12,9 +16,7 @@ export const useLocalStorage = <T>(
     key: string,
     initialValue: T,
 ): [T, (newValue: T) => void, () => void] => {
-    const [localValue, setLocalValue] = useState<T>(
-        getOrDefault(key, initialValue),
-    );
+    const [localValue, setLocalValue] = useState<T>(initialValue);
     const [currentKey, setCurrentKey] = useState('');
     const [initialized, setInitialized] = useState(false);
 
@@ -27,6 +29,13 @@ export const useLocalStorage = <T>(
         setLocalValue(getOrDefault(key, initialValue));
 
     useEffect(() => {
+        if (
+            typeof window === 'undefined' ||
+            typeof window.localStorage === 'undefined'
+        ) {
+            return;
+        }
+
         if (currentKey === key && initialized) {
             return;
         }
