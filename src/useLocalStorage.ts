@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { getOrDefault, hasLocalStorageValue, saveLocalStorageValue } from './helper';
+import {
+    getOrDefault,
+    hasLocalStorageValue,
+    saveLocalStorageValue,
+} from './helper';
 
 /**
  * A react hook which uses the local storage of a browser to store and update values
