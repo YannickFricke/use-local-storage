@@ -1,3 +1,11 @@
+## [2.0.2](https://github.com/YannickFricke/use-local-storage/compare/v2.0.1...v2.0.2) (2022-04-03)
+
+
+### Bug Fixes
+
+* **uselocalstorage:** do not use the localstorage on hook execution ([c69ffee](https://github.com/YannickFricke/use-local-storage/commit/c69ffeebdc438714aba8eece2b46099adff4b77a))
+* **uselocalstorage:** fixed access to window.localstorage ([d4fda1f](https://github.com/YannickFricke/use-local-storage/commit/d4fda1fc73af2c38d28106a4cc233a15fd4f892b))
+
 ## [2.0.1](https://github.com/YannickFricke/use-local-storage/compare/v2.0.0...v2.0.1) (2021-02-17)
 
 
